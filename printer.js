@@ -7,19 +7,22 @@ let description = function (team) {
   return division + team.name
 }
 
+let assignScoreToTeam = function (element, index) {
+  return [description(owl.teams[index]), element]
+}
+
+let decreasingScores = function (a, b) {
+  return b[1] - a[1]
+}
+
+let printRank = function (element, index) {
+  let rank = leftPad(index + 1, 2)
+  console.log(rank + ' ' + element[0] + ' (' + element[1] + ')')
+}
+
 exports.print = function (scores) {
-  let rankings = []
-  for (let i = 0; i < scores.array.length; i++) {
-    let team = owl.teams[i]
-    rankings.push([description(team), scores.array[i]])
-  }
-
-  rankings.sort(function (a, b) {
-    return b[1] - a[1]
-  })
-
-  for (let i = 0; i < rankings.length; i++) {
-    let rank = leftPad(i + 1, 2)
-    console.log(rank + ' ' + rankings[i][0] + ' (' + rankings[i][1] + ')')
-  }
+  scores.array
+    .map(assignScoreToTeam)
+    .sort(decreasingScores)
+    .forEach(printRank)
 }
