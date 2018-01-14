@@ -18,6 +18,6 @@ exports.addGames = function (C) {
 
   // 2018-01-13
   C.addGame(owl.spitfire, owl.fusion)
-  // excelsior vs outlaws
-  // dynasty vs gladiators
+  C.addGame(owl.excelsior, owl.outlaws)
+  C.addGame(owl.dynasty, owl.gladiators)
 }
