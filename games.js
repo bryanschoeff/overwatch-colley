@@ -16,7 +16,7 @@ exports.loadGamesFromApi = new Promise((resolve, reject) => {
         }
       })
     })
-
+    
     resolve(results)
   }).catch(error => {
     reject(error.response.body)
