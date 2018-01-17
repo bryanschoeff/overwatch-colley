@@ -1,5 +1,6 @@
 let fuel = {
   'id': 0,
+  'owl_id': 4523,
   'division': 'Pacific',
   'city': 'Dallas',
   'name': 'Dallas Fuel',
@@ -8,6 +9,7 @@ let fuel = {
 
 let gladiators = {
   'id': 1,
+  'owl_id': 4406,
   'division': 'Pacific',
   'city': 'Los Angeles',
   'name': 'Los Angeles Gladiators',
@@ -16,6 +18,7 @@ let gladiators = {
 
 let valiant = {
   'id': 2,
+  'owl_id': 4405,
   'division': 'Pacific',
   'city': 'Los Angeles',
   'name': 'Los Angeles Valiant',
@@ -24,6 +27,7 @@ let valiant = {
 
 let shock = {
   'id': 3,
+  'owl_id': 4404,
   'division': 'Pacific',
   'city': 'San Francisco',
   'name': 'San Francisco Shock',
@@ -32,6 +36,7 @@ let shock = {
 
 let dynasty = {
   'id': 4,
+  'owl_id': 4409,
   'division': 'Pacific',
   'city': 'Seoul',
   'name': 'Seoul Dynasty',
@@ -40,6 +45,7 @@ let dynasty = {
 
 let dragons = {
   'id': 5,
+  'owl_id': 4408,
   'division': 'Pacific',
   'city': 'Shanghai',
   'name': 'Shanghai Dragons',
@@ -48,6 +54,7 @@ let dragons = {
 
 let uprising = {
   'id': 6,
+  'owl_id': 4402,
   'division': 'Atlantic',
   'city': 'Boston',
   'name': 'Boston Uprising',
@@ -56,6 +63,7 @@ let uprising = {
 
 let outlaws = {
   'id': 7,
+  'owl_id': 4525,
   'division': 'Atlantic',
   'city': 'Houston',
   'name': 'Houston Outlaws',
@@ -64,6 +72,7 @@ let outlaws = {
 
 let spitfire = {
   'id': 8,
+  'owl_id': 4410,
   'division': 'Atlantic',
   'city': 'London',
   'name': 'London Spitfire',
@@ -72,6 +81,7 @@ let spitfire = {
 
 let mayhem = {
   'id': 9,
+  'owl_id': 4407,
   'division': 'Atlantic',
   'city': 'Miami-Orlando',
   'name': 'Florida Mayhem',
@@ -80,6 +90,7 @@ let mayhem = {
 
 let excelsior = {
   'id': 10,
+  'owl_id': 4403,
   'division': 'Atlantic',
   'city': 'New York City',
   'name': 'New York Excelsior',
@@ -88,6 +99,7 @@ let excelsior = {
 
 let fusion = {
   'id': 11,
+  'owl_id': 4524,
   'division': 'Atlantic',
   'city': 'Philadelphia',
   'name': 'Philadelphia Fusion',
