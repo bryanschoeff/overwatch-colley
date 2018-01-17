@@ -16,7 +16,7 @@ exports.loadGamesFromApi = new Promise((resolve, reject) => {
         }
       })
     })
-    
+
     resolve(results)
   }).catch(error => {
     reject(error.response.body)
@@ -29,9 +29,9 @@ exports.addGamesToMatrix = function (results, matrix) {
   })
 }
 
-function id (owl_id) {
+function id (owlId) {
   return owl.teams.find((element) => {
-    return element.owl_id === owl_id
+    return element.owlId === owlId
   }).id
 }
 
