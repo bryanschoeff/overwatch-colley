@@ -18,20 +18,11 @@ test.afterEach(t => {
   td.reset
 })
 
-test('loadGamesFromApi', t => {
-  return games.loadGamesFromApi.then((result) => {
-    t.is(result.length, 2)
-    t.deepEqual(result, [[ 4523, 4406 ], [ 4406, 4405 ]])
+test('addGames', t => {
+  return games.loadGames(matrix).then(() => {
+    td.verify(matrix.addGame(td.matchers.isA(Number), td.matchers.isA(Number)), { times: 2 })
+    t.pass()
   })
-})
-
-test('addGamesToMatrix', t => {
-  let gameResults = [[ 4523, 4406 ], [ 4406, 4405 ]]
-
-  games.addGamesToMatrix(gameResults, matrix)
-
-  td.verify(matrix.addGame(td.matchers.isA(Number), td.matchers.isA(Number)), { times: 2 })
-  t.pass()
 })
 
 let testApiResponse = {
