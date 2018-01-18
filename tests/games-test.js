@@ -15,13 +15,13 @@ test.beforeEach(t => {
 })
 
 test.afterEach(t => {
-  td.reset
+  td.reset()
 })
 
 test('addGames', t => {
   return games.loadGames(matrix).then(() => {
-    td.verify(matrix.addGame(td.matchers.isA(Number), td.matchers.isA(Number)), { times: 2 })
-    t.pass()
+    td.verify(matrix.addGame(0, 1))
+    td.verify(matrix.addGame(1, 2))
   })
 })
 

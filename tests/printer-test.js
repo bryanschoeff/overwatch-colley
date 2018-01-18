@@ -18,9 +18,6 @@ test('print', t => {
 
   printer.print(scores)
 
-  td.verify(console.log(td.matchers.anything()), { times: 2 })
   td.verify(console.log(' 1  [Pacific] Dallas Fuel (42)'))
   td.verify(console.log(' 2  [Pacific] Los Angeles Gladiators (12)'))
-
-  t.pass()
 })

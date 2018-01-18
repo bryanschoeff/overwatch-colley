@@ -23,6 +23,7 @@
     "testdouble": "^3.3.2"
   },
   "ava": {
+    "failWithoutAssertions": false,
     "files": [
       "tests/*.js"
     ]
