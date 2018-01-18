@@ -1,23 +1,48 @@
+let got = require('got')
 let owl = require('./owl.js')
+let scheduleUri = 'https://api.overwatchleague.com/schedule?locale=en_US'
 
-exports.addGames = function (C) {
-  // 2018-01-10
-  C.addGame(owl.valiant, owl.shock)
-  C.addGame(owl.gladiators, owl.dragons)
-  C.addGame(owl.dynasty, owl.fuel)
+exports.loadGames = function (matrix) {
 
-  // 2018-01-11
-  C.addGame(owl.spitfire, owl.mayhem)
-  C.addGame(owl.fusion, owl.outlaws)
-  C.addGame(owl.excelsior, owl.uprising)
+  return new Promise((resolve, reject) => {
+    var results = []
 
-  // 2018-01-12
-  C.addGame(owl.valiant, owl.fuel)
-  C.addGame(owl.uprising, owl.mayhem)
-  C.addGame(owl.shock, owl.dragons)
+    got(scheduleUri, { json: true }).then(response => {
+      // Just want the regular season; skip preseason (0) and take stages 1-4
+      let schedule = response.body.data.stages.slice(1, 4)
 
-  // 2018-01-13
-  C.addGame(owl.spitfire, owl.fusion)
-  C.addGame(owl.excelsior, owl.outlaws)
-  C.addGame(owl.dynasty, owl.gladiators)
+      schedule.forEach(stage => {
+        stage.matches.forEach(match => {
+          if (match.state === 'CONCLUDED') {
+            results.push([winner(match), loser(match)])
+          }
+        })
+      })
+
+      addGamesToMatrix(results, matrix)
+      resolve()
+    }).catch(error => {
+      reject(error.response.body)
+    })
+  })
+}
+
+function addGamesToMatrix(results, matrix) {
+  results.forEach(result => {
+    matrix.addGame(id(result[0]), id(result[1]))
+  })
+}
+
+function id(owlId) {
+  return owl.teams.find((element) => {
+    return element.owlId === owlId
+  }).id
+}
+
+function winner(match) {
+  return match.winner.id
+}
+
+function loser(match) {
+  return (match.winner.id === match.competitors[0].id) ? match.competitors[1].id : match.competitors[0].id
 }
